@@ -19,6 +19,9 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				inter: ['Inter', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -142,16 +145,38 @@ export default {
 					'60%': { transform: 'rotate(0.0deg)' },
 					'100%': { transform: 'rotate(0.0deg)' },
 				},
+				float: {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' },
+				},
+				shimmer: {
+					'0%': { backgroundPosition: '-100% 0' },
+					'100%': { backgroundPosition: '100% 0' },
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
 				wave: 'wave 2.5s ease-in-out infinite',
+				float: 'float 6s ease-in-out infinite',
+				shimmer: 'shimmer 2s linear infinite',
 			},
 			backgroundImage: {
 				'eco-gradient': 'linear-gradient(120deg, #A5D6A7 0%, #81C784 50%, #4CAF50 100%)',
 				'eco-pattern': "url(\"data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2366bb6a' fill-opacity='0.1'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
+				'glow-gradient': 'radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, transparent 70%)',
+			},
+			boxShadow: {
+				'glow-sm': '0 0 10px rgba(16, 185, 129, 0.2)',
+				'glow-md': '0 0 20px rgba(16, 185, 129, 0.3)',
+				'glow-lg': '0 0 30px rgba(16, 185, 129, 0.4)',
+				'glow-xl': '0 0 40px rgba(16, 185, 129, 0.5)',
+			},
+			textShadow: {
+				'glow-sm': '0 0 5px rgba(16, 185, 129, 0.3)',
+				'glow-md': '0 0 10px rgba(16, 185, 129, 0.4)',
+				'glow-lg': '0 0 15px rgba(16, 185, 129, 0.5)',
 			},
 		}
 	},

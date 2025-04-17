@@ -43,12 +43,12 @@ export function ProgressCircle({
   }[size];
   
   const colorClasses = {
-    primary: "stroke-primary shadow-primary/20",
-    green: "stroke-green-500 shadow-green-500/20",
-    red: "stroke-red-500 shadow-red-500/20",
-    yellow: "stroke-yellow-500 shadow-yellow-500/20",
-    blue: "stroke-blue-500 shadow-blue-500/20",
-    accent: "stroke-accent shadow-accent/20",
+    primary: "stroke-primary shadow-primary/30",
+    green: "stroke-green-500 shadow-green-500/30",
+    red: "stroke-red-500 shadow-red-500/30",
+    yellow: "stroke-yellow-500 shadow-yellow-500/30",
+    blue: "stroke-blue-500 shadow-blue-500/30",
+    accent: "stroke-accent shadow-accent/30",
   };
 
   return (
@@ -59,8 +59,18 @@ export function ProgressCircle({
         viewBox={`0 0 ${renderSize} ${renderSize}`}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="drop-shadow-md"
+        className="drop-shadow-lg filter"
       >
+        {/* Background glow effect */}
+        <circle
+          cx={renderSize / 2}
+          cy={renderSize / 2}
+          r={radius + 4}
+          fill="none"
+          className={cn("opacity-20", colorClasses[color])}
+          filter="blur(8px)"
+        />
+        {/* Background track */}
         <circle
           cx={renderSize / 2}
           cy={renderSize / 2}
@@ -71,6 +81,7 @@ export function ProgressCircle({
           fill="none"
           className="opacity-20"
         />
+        {/* Progress circle */}
         <circle
           cx={renderSize / 2}
           cy={renderSize / 2}
@@ -81,13 +92,13 @@ export function ProgressCircle({
           strokeDashoffset={offset}
           fill="none"
           strokeLinecap="round"
-          className={cn(colorClasses[color], "filter drop-shadow-md")}
+          className={cn(colorClasses[color], "filter drop-shadow-lg transition-all duration-700")}
           transform={`rotate(-90 ${renderSize / 2} ${renderSize / 2})`}
         />
       </svg>
       {showValue && (
         <div className={cn("absolute inset-0 flex flex-col items-center justify-center", fontSize)}>
-          <span className="font-semibold glow-green">{valueLabel || `${Math.round(normalizedPercentage)}%`}</span>
+          <span className="font-semibold glow-green italic-text">{valueLabel || `${Math.round(normalizedPercentage)}%`}</span>
         </div>
       )}
     </div>
