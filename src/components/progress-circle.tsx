@@ -43,12 +43,12 @@ export function ProgressCircle({
   }[size];
   
   const colorClasses = {
-    primary: "stroke-primary",
-    green: "stroke-green-600",
-    red: "stroke-eco-red",
-    yellow: "stroke-yellow-500",
-    blue: "stroke-blue-500",
-    accent: "stroke-accent",
+    primary: "stroke-primary shadow-primary/20",
+    green: "stroke-green-500 shadow-green-500/20",
+    red: "stroke-red-500 shadow-red-500/20",
+    yellow: "stroke-yellow-500 shadow-yellow-500/20",
+    blue: "stroke-blue-500 shadow-blue-500/20",
+    accent: "stroke-accent shadow-accent/20",
   };
 
   return (
@@ -59,6 +59,7 @@ export function ProgressCircle({
         viewBox={`0 0 ${renderSize} ${renderSize}`}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        className="drop-shadow-md"
       >
         <circle
           cx={renderSize / 2}
@@ -66,8 +67,9 @@ export function ProgressCircle({
           r={radius}
           stroke="currentColor"
           strokeWidth={strokeWidth}
-          strokeOpacity={0.2}
+          strokeOpacity={0.15}
           fill="none"
+          className="opacity-20"
         />
         <circle
           cx={renderSize / 2}
@@ -79,13 +81,13 @@ export function ProgressCircle({
           strokeDashoffset={offset}
           fill="none"
           strokeLinecap="round"
-          className={colorClasses[color]}
+          className={cn(colorClasses[color], "filter drop-shadow-md")}
           transform={`rotate(-90 ${renderSize / 2} ${renderSize / 2})`}
         />
       </svg>
       {showValue && (
         <div className={cn("absolute inset-0 flex flex-col items-center justify-center", fontSize)}>
-          <span className="font-semibold">{valueLabel || `${Math.round(normalizedPercentage)}%`}</span>
+          <span className="font-semibold glow-green">{valueLabel || `${Math.round(normalizedPercentage)}%`}</span>
         </div>
       )}
     </div>

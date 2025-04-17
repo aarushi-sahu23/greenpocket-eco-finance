@@ -30,14 +30,14 @@ export function MainNav() {
   const { pathname } = useLocation();
 
   return (
-    <nav className="flex justify-between items-center w-full bg-card border-b sticky top-0 z-10 px-4 py-2 md:px-6">
+    <nav className="flex justify-between items-center w-full backdrop-blur-md bg-black/30 border-b border-primary/10 sticky top-0 z-10 px-4 py-2 md:px-6">
       <Link to="/" className="flex items-center gap-2">
-        <div className="bg-gradient-to-br from-green-500 to-green-700 w-8 h-8 rounded-lg flex items-center justify-center">
-          <span className="text-white font-bold text-lg">G</span>
+        <div className="bg-gradient-to-br from-green-500 to-green-600 w-8 h-8 rounded-lg flex items-center justify-center shadow-lg shadow-green-500/20">
+          <span className="text-black font-bold text-lg">G</span>
         </div>
-        <span className="font-bold text-lg text-primary hidden md:block">GreenPocket</span>
+        <span className="font-bold text-lg text-white hidden md:block glow-green">GreenPocket</span>
       </Link>
-      <div className="flex items-center gap-0.5 sm:gap-1">
+      <div className="flex items-center gap-1 sm:gap-2 bg-black/40 backdrop-blur-sm p-1 rounded-lg border border-white/5 glow-border">
         {mainNavItems.map((item) => {
           const isActive = pathname === item.href;
           const Icon = item.icon;
@@ -47,20 +47,20 @@ export function MainNav() {
               key={item.href}
               to={item.href}
               className={cn(
-                "flex flex-col items-center justify-center px-2 py-1.5 text-sm rounded-md transition-colors",
+                "flex flex-col items-center justify-center px-3 py-1.5 text-sm rounded-md transition-all",
                 isActive
-                  ? "text-primary bg-primary/10"
-                  : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  ? "text-primary bg-primary/10 shadow-inner"
+                  : "text-gray-400 hover:text-white hover:bg-white/5"
               )}
             >
-              <Icon size={18} />
+              <Icon size={18} className={isActive ? "text-primary" : ""} />
               <span className="text-xs mt-1">{item.title}</span>
             </Link>
           );
         })}
       </div>
-      <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center">
-        <span className="text-sm font-medium">UP</span>
+      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-green-600 to-green-500 flex items-center justify-center shadow-lg shadow-green-500/20">
+        <span className="text-sm font-medium text-black">UP</span>
       </div>
     </nav>
   );

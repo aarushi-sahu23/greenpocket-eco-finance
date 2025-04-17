@@ -5,83 +5,44 @@
 
 @layer base {
   :root {
-    --background: 120 30% 98%;
-    --foreground: 120 10% 10%;
+    --background: 200 15% 6%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 120 10% 10%;
+    --card: 200 15% 9%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 120 10% 10%;
+    --popover: 200 15% 9%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 122 39% 40%;
-    --primary-foreground: 120 10% 98%;
+    --primary: 142 64% 54%;
+    --primary-foreground: 0 0% 0%;
 
-    --secondary: 120 10% 96%;
-    --secondary-foreground: 120 5% 20%;
+    --secondary: 200 10% 12%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 120 5% 96%;
-    --muted-foreground: 120 5% 45%;
+    --muted: 200 5% 15%;
+    --muted-foreground: 0 0% 70%;
 
-    --accent: 196 94% 57%;
-    --accent-foreground: 196 100% 15%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 120 5% 88%;
-    --input: 120 5% 88%;
-    --ring: 122 39% 40%;
-
-    --radius: 1rem;
-
-    --sidebar-background: 122 39% 98%;
-    --sidebar-foreground: 122 39% 20%;
-    --sidebar-primary: 122 39% 40%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 122 39% 95%;
-    --sidebar-accent-foreground: 122 39% 20%;
-    --sidebar-border: 122 39% 90%;
-    --sidebar-ring: 122 39% 50%;
-  }
-
-  .dark {
-    --background: 120 15% 12%;
-    --foreground: 120 10% 98%;
-
-    --card: 120 15% 15%;
-    --card-foreground: 120 10% 98%;
-
-    --popover: 120 15% 15%;
-    --popover-foreground: 120 10% 98%;
-
-    --primary: 122 39% 40%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 120 10% 20%;
-    --secondary-foreground: 120 10% 98%;
-
-    --muted: 120 5% 25%;
-    --muted-foreground: 120 5% 70%;
-
-    --accent: 196 94% 57%;
-    --accent-foreground: 196 100% 15%;
+    --accent: 142 84% 54%;
+    --accent-foreground: 0 0% 0%;
 
     --destructive: 0 62% 45%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 120 10% 20%;
-    --input: 120 10% 20%;
-    --ring: 122 39% 40%;
+    --border: 200 10% 15%;
+    --input: 200 10% 15%;
+    --ring: 142 64% 54%;
+
+    --radius: 0.75rem;
     
-    --sidebar-background: 122 20% 15%;
-    --sidebar-foreground: 122 30% 90%;
-    --sidebar-primary: 122 39% 40%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 122 15% 20%;
-    --sidebar-accent-foreground: 122 30% 90%;
-    --sidebar-border: 122 15% 25%;
-    --sidebar-ring: 122 39% 50%;
+    --sidebar-background: 142 20% 12%;
+    --sidebar-foreground: 142 30% 90%;
+    --sidebar-primary: 142 64% 54%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 142 15% 15%;
+    --sidebar-accent-foreground: 142 30% 90%;
+    --sidebar-border: 142 15% 20%;
+    --sidebar-ring: 142 64% 50%;
   }
 }
 
@@ -96,7 +57,12 @@
 }
 
 .eco-card {
-  @apply relative overflow-hidden rounded-xl border border-border/50 bg-card p-6 shadow-sm transition-all hover:shadow-md;
+  @apply relative overflow-hidden rounded-xl border border-primary/20 bg-card p-6 shadow-lg transition-all hover:shadow-xl;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 0 8px rgba(16, 185, 129, 0.1);
+}
+
+.eco-card:hover {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25), 0 0 15px rgba(16, 185, 129, 0.2);
 }
 
 .eco-card::before {
@@ -105,10 +71,20 @@
 }
 
 .dashboard-bg {
-  background-image: radial-gradient(circle at 1% 1%, rgba(165, 214, 167, 0.15) 0%, transparent 20%), 
-                    radial-gradient(circle at 99% 99%, rgba(79, 195, 247, 0.1) 0%, transparent 20%),
-                    radial-gradient(circle at 99% 1%, rgba(165, 214, 167, 0.1) 0%, transparent 20%),
-                    radial-gradient(circle at 1% 99%, rgba(79, 195, 247, 0.1) 0%, transparent 20%);
+  background: radial-gradient(circle at 0% 0%, rgba(16, 185, 129, 0.15) 0%, transparent 30%), 
+              radial-gradient(circle at 100% 100%, rgba(16, 185, 129, 0.1) 0%, transparent 30%);
+}
+
+.glow-effect {
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+}
+
+.glass-card {
+  background: rgba(15, 23, 30, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(16, 185, 129, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius);
 }
 
 .eco-label {
@@ -116,13 +92,30 @@
 }
 
 .eco-label-green {
-  @apply bg-green-100 text-green-800;
+  @apply bg-green-950 text-green-400 border border-green-700/50;
 }
 
 .eco-label-neutral {
-  @apply bg-yellow-100 text-yellow-800;
+  @apply bg-yellow-950 text-yellow-400 border border-yellow-700/50;
 }
 
 .eco-label-red {
-  @apply bg-red-100 text-red-800;
+  @apply bg-red-950 text-red-400 border border-red-700/50;
+}
+
+.glow-green {
+  text-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+}
+
+.glow-border {
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.2), inset 0 0 5px rgba(16, 185, 129, 0.05);
+}
+
+.neo-button {
+  @apply bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-black font-medium rounded-lg px-4 py-2 transition-all shadow-lg;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+}
+
+.neo-button:hover {
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
 }

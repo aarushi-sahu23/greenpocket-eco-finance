@@ -26,19 +26,19 @@ export function EcoRating({
         return {
           icon: <Leaf className="h-3.5 w-3.5" />,
           label: "Eco-friendly",
-          color: "text-eco-green bg-green-100",
+          color: "text-green-400 bg-green-950/70 border border-green-700/50",
         };
       case "neutral":
         return {
           icon: <AlertTriangle className="h-3.5 w-3.5" />,
           label: "Neutral",
-          color: "text-yellow-700 bg-yellow-100",
+          color: "text-yellow-400 bg-yellow-950/70 border border-yellow-700/50",
         };
       case "red":
         return {
           icon: <Ban className="h-3.5 w-3.5" />,
           label: "Carbon-heavy",
-          color: "text-eco-red bg-red-100",
+          color: "text-red-400 bg-red-950/70 border border-red-700/50",
         };
     }
   };
@@ -54,7 +54,7 @@ export function EcoRating({
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1 rounded-full font-medium",
+        "inline-flex items-center gap-1 rounded-full font-medium shadow-md",
         color,
         sizeClass,
         className
