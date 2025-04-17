@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,48 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// GreenPocket custom colors
+				green: {
+					50: '#F0F9F0',
+					100: '#DCEFDC',
+					200: '#C1E1C1',
+					300: '#A5D6A7',
+					400: '#81C784',
+					500: '#66BB6A',
+					600: '#4CAF50',
+					700: '#388E3C',
+					800: '#2E7D32',
+					900: '#1B5E20',
+				},
+				blue: {
+					50: '#E1F5FE',
+					100: '#B3E5FC',
+					200: '#81D4FA',
+					300: '#4FC3F7',
+					400: '#29B6F6',
+					500: '#03A9F4',
+					600: '#039BE5',
+					700: '#0288D1',
+					800: '#0277BD',
+					900: '#01579B',
+				},
+				brown: {
+					50: '#EFEBE9',
+					100: '#D7CCC8',
+					200: '#BCAAA4',
+					300: '#A1887F',
+					400: '#8D6E63',
+					500: '#795548',
+					600: '#6D4C41',
+					700: '#5D4037',
+					800: '#4E342E',
+					900: '#3E2723',
+				},
+				eco: {
+					green: '#2E7D32',
+					neutral: '#FFC107',
+					red: '#D32F2F',
 				}
 			},
 			borderRadius: {
@@ -84,12 +127,32 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+				pulse: {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.5' },
+				},
+				wave: {
+					'0%': { transform: 'rotate(0.0deg)' },
+					'10%': { transform: 'rotate(14.0deg)' },
+					'20%': { transform: 'rotate(-8.0deg)' },
+					'30%': { transform: 'rotate(14.0deg)' },
+					'40%': { transform: 'rotate(-4.0deg)' },
+					'50%': { transform: 'rotate(10.0deg)' },
+					'60%': { transform: 'rotate(0.0deg)' },
+					'100%': { transform: 'rotate(0.0deg)' },
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+				wave: 'wave 2.5s ease-in-out infinite',
+			},
+			backgroundImage: {
+				'eco-gradient': 'linear-gradient(120deg, #A5D6A7 0%, #81C784 50%, #4CAF50 100%)',
+				'eco-pattern': "url(\"data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2366bb6a' fill-opacity='0.1'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
